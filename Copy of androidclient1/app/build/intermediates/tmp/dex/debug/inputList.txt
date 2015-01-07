@@ -1,0 +1,4 @@
+/Users/kevin/Dropbox/Github/Android_learn/Copy of androidclient1/app/build/intermediates/classes/debug
+/Users/kevin/Dropbox/Github/Android_learn/Copy of androidclient1/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-f1050bd8e41fee59b0cefd42e1b1302608eb4df7.jar
+/Users/kevin/Dropbox/Github/Android_learn/Copy of androidclient1/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-83b58e4f8cf153319288c7d1b48660556a4d611c.jar
+/Users/kevin/Dropbox/Github/Android_learn/Copy of androidclient1/app/build/intermediates/pre-dexed/debug/classes-9b7c627db8f8ae3c5d2f1748b7e0baf4eaf941e7.jar
