@@ -21,7 +21,7 @@ import java.util.List;
 
 
 public class MainActivity extends Activity  {
-    private static final String SEVERIP = "10.10.10.103";
+    private static final String SEVERIP = "10.10.10.102";
     private static final int SEVERPORT = 6666;
 
     DatabaseHandler db;
@@ -62,36 +62,17 @@ public class MainActivity extends Activity  {
         mBtnRight = (Button) findViewById(R.id.tv_btn_right);
         mBtnDown = (Button) findViewById(R.id.tv_btn_down);
         mBtnSearch = (Button) findViewById(R.id.tv_btn_search);
+
+
+//        Button.OnClickListener buttonClickListener
+//                = new Button.OnClickListener(){
 //
-//        mBtnPower.setOnClickListener(this);
-//        mBtnPower.setOnLongClickListener(this);
-//        mBtnPanel.setOnClickListener(this);
-//        mBtnPanel.setOnLongClickListener(this);
-//        mBtnAV.setOnClickListener(this);
-//        mBtnAV.setOnLongClickListener(this);
-//        mBtnMore.setOnClickListener(this);
-//        mBtnMore.setOnLongClickListener(this);
-//        mBtnUp.setOnClickListener(this);
-//        mBtnUp.setOnLongClickListener(this);
-//        mBtnLeft.setOnClickListener(this);
-//        mBtnLeft.setOnLongClickListener(this);
-//        mBtnRight.setOnClickListener(this);
-//        mBtnRight.setOnLongClickListener(this);
-//        mBtnDown.setOnClickListener(this);
-//        mBtnDown.setOnLongClickListener(this);
-//        mBtnSearch.setOnClickListener(this);
-//        mBtnSearch.setOnLongClickListener(this);
-
-
-        Button.OnClickListener buttonClickListener
-                = new Button.OnClickListener(){
-
-            @Override
-            public void onClick(View arg0) {
-                Thread clientThread=new Thread(new ClientThread());
-                clientThread.start();
-            }};
-        mBtnMore.setOnClickListener(buttonClickListener);
+//            @Override
+//            public void onClick(View arg0) {
+//                Thread clientThread=new Thread(new ClientThread());
+//                clientThread.start();
+//            }};
+//        mBtnMore.setOnClickListener(buttonClickListener);
 
         Button.OnClickListener buttonConnectListener
                 = new Button.OnClickListener(){
@@ -102,7 +83,7 @@ public class MainActivity extends Activity  {
             }};
         mBtnAV.setOnClickListener(buttonConnectListener);
 
-        Button.OnClickListener buttonUpCrtlListener
+        Button.OnClickListener buttonUpCtrlListener
                 = new Button.OnClickListener(){
             @Override
             public void onClick(View arg0) {
@@ -110,9 +91,9 @@ public class MainActivity extends Activity  {
                 ctrlUp.start();
                 Toast.makeText(mContext, "up clicked", Toast.LENGTH_SHORT).show();
             }};
-        mBtnUp.setOnClickListener(buttonUpCrtlListener);
+        mBtnUp.setOnClickListener(buttonUpCtrlListener);
 
-        Button.OnClickListener buttonDownCrtlListener
+        Button.OnClickListener buttonDownCtrlListener
                 = new Button.OnClickListener(){
             @Override
             public void onClick(View arg0) {
@@ -120,9 +101,9 @@ public class MainActivity extends Activity  {
                 ctrlDown.start();
                 Toast.makeText(mContext, "down clicked", Toast.LENGTH_SHORT).show();
             }};
-        mBtnDown.setOnClickListener(buttonDownCrtlListener);
+        mBtnDown.setOnClickListener(buttonDownCtrlListener);
 
-        Button.OnClickListener buttonLeftCrtlListener
+        Button.OnClickListener buttonLeftCtrlListener
                 = new Button.OnClickListener(){
             @Override
             public void onClick(View arg0) {
@@ -130,10 +111,10 @@ public class MainActivity extends Activity  {
                 ctrlLeft.start();
                 Toast.makeText(mContext, "left clicked", Toast.LENGTH_SHORT).show();
             }};
-        mBtnLeft.setOnClickListener(buttonLeftCrtlListener);
+        mBtnLeft.setOnClickListener(buttonLeftCtrlListener);
 
 
-        Button.OnClickListener buttonRightCrtlListener
+        Button.OnClickListener buttonRightCtrlListener
                 = new Button.OnClickListener(){
             @Override
             public void onClick(View arg0) {
@@ -141,7 +122,7 @@ public class MainActivity extends Activity  {
                 ctrlRight.start();
                 Toast.makeText(mContext, "right clicked", Toast.LENGTH_SHORT).show();
             }};
-        mBtnRight.setOnClickListener(buttonRightCrtlListener);
+        mBtnRight.setOnClickListener(buttonRightCtrlListener);
 
         Button.OnLongClickListener buttonUpLearnListener
                 = new Button.OnLongClickListener(){
@@ -904,6 +885,7 @@ public class MainActivity extends Activity  {
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
             // TODO Auto-generated catch block
+            System.out.println("createNewSocket");
             e.printStackTrace();
         }
     }

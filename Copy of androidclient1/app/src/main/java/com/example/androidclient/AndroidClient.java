@@ -1,19 +1,5 @@
 package com.example.androidclient;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
-import java.util.List;
-
-
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,9 +9,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.List;
+
 public class AndroidClient extends Activity {
 
-	private static final String SEVERIP = "10.10.10.103";//10.32.106.222   192.168.1.45
+	private static final String SEVERIP = "10.10.10.102";//10.32.106.222   192.168.1.45
 	private static final int SEVERPORT = 6666;
 	private String learntMsg;
 
