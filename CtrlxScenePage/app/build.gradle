@@ -22,4 +22,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile files('libs/WeMoSDK_1.0.jar')
+    compile files('/Users/kevin/Dropbox/Github/Android_learn/CtrlxScenePage/WeMoSDK_1.0.jar')
 }

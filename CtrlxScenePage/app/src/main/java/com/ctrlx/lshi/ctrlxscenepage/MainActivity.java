@@ -1,16 +1,17 @@
 package com.ctrlx.lshi.ctrlxscenepage;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener{
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
     private Button mBtnTv;
+    private Button mTheatre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mBtnTv = (Button) findViewById(R.id.btn_tv);
-
         mBtnTv.setOnClickListener(this);
+
+        //this  button is to control the wemo switch
+        mTheatre = (Button) findViewById(R.id.btn_theatre);
+        mTheatre.setOnClickListener(this);
     }
 
     @Override
