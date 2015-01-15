@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 /**
  * Created by lshi19 on 1/9/15.
  */
-public class TvActivity extends ActionBarActivity implements View.OnClickListener{
+public class ThemeActivity extends ActionBarActivity implements View.OnClickListener{
     private Button mBtnTheatre;
     private RelativeLayout mLayout;
 
@@ -21,7 +21,7 @@ public class TvActivity extends ActionBarActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tv_mode);
+        setContentView(R.layout.activity_theme_mode);
 
 
         mLayout = (RelativeLayout) findViewById(R.id.layout);
