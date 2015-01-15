@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/kevin/Dropbox/Github/Android_learn/WeMoDemo/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/jx236/Documents/GitHub/Android_learn/WeMoDemo/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="black_color">#000</color>
     <color name="blue_color">#3D99CA</color>
     <color name="dark_grey_color">#666666</color>
     <color name="orange_color">#FFBB33</color>
     <color name="white_color">#FFF</color>
-    <!-- From: file:/Users/kevin/Dropbox/Github/Android_learn/WeMoDemo/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/jx236/Documents/GitHub/Android_learn/WeMoDemo/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/Users/kevin/Dropbox/Github/Android_learn/WeMoDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/jx236/Documents/GitHub/Android_learn/WeMoDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">WeMoDemo</string>
     <string name="notification_add">Add device </string>
@@ -23,7 +23,7 @@
     <string name="state_on">On</string>
     <string name="state_stand_by">Stand by</string>
     <string name="state_wait">No motion</string>
-    <!-- From: file:/Users/kevin/Dropbox/Github/Android_learn/WeMoDemo/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/jx236/Documents/GitHub/Android_learn/WeMoDemo/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

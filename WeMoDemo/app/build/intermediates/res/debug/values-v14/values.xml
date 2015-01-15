@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/kevin/Dropbox/Github/Android_learn/WeMoDemo/app/src/main/res/values-v14/styles.xml -->
+    <!-- From: file:/C:/Users/jx236/Documents/GitHub/Android_learn/WeMoDemo/app/src/main/res/values-v14/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
