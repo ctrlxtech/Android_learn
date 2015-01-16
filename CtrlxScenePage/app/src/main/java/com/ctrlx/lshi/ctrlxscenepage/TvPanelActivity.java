@@ -2,6 +2,7 @@ package com.ctrlx.lshi.ctrlxscenepage;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -26,6 +27,7 @@ public class TvPanelActivity extends Activity implements View.OnClickListener, V
     private Button mBtnRight;
     private Button mBtnDown;
     private Button mBtnSearch;
+    private Button backButton;
 
     private Context mContext;
 
@@ -47,6 +49,7 @@ public class TvPanelActivity extends Activity implements View.OnClickListener, V
         mBtnRight = (Button) findViewById(R.id.tv_btn_right);
         mBtnDown = (Button) findViewById(R.id.tv_btn_down);
         mBtnSearch = (Button) findViewById(R.id.tv_btn_search);
+        backButton = (Button) findViewById(R.id.backButton);
 
         mBtnPower.setOnClickListener(this);
         mBtnPower.setOnLongClickListener(this);
@@ -60,12 +63,16 @@ public class TvPanelActivity extends Activity implements View.OnClickListener, V
         mBtnUp.setOnLongClickListener(this);
         mBtnLeft.setOnClickListener(this);
         mBtnLeft.setOnLongClickListener(this);
+        mBtnCenter.setOnClickListener(this);
+        mBtnCenter.setOnLongClickListener(this);
         mBtnRight.setOnClickListener(this);
         mBtnRight.setOnLongClickListener(this);
         mBtnDown.setOnClickListener(this);
         mBtnDown.setOnLongClickListener(this);
         mBtnSearch.setOnClickListener(this);
         mBtnSearch.setOnLongClickListener(this);
+
+        backButton.setOnClickListener(this);
     }
 
     @Override
@@ -101,6 +108,11 @@ public class TvPanelActivity extends Activity implements View.OnClickListener, V
             case R.id.tv_btn_search:
                 Toast.makeText(mContext, "search clicked", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.backButton:
+                Intent intent = new Intent(TvPanelActivity.this, MainActivity.class);
+                startActivity(intent);
+                TvPanelActivity.this.finish();
+                break;
         }
     }
 
@@ -124,6 +136,9 @@ public class TvPanelActivity extends Activity implements View.OnClickListener, V
                 return true;
             case R.id.tv_btn_left:
                 Toast.makeText(mContext, "left long clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.tv_btn_center:
+                Toast.makeText(mContext, "center long clicked", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.tv_btn_right:
                 Toast.makeText(mContext, "right long clicked", Toast.LENGTH_SHORT).show();

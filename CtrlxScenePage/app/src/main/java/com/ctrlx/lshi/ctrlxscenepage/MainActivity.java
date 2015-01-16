@@ -60,19 +60,18 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String text = contentItems[position];
-                if (slidingLayout.isLeftLayoutVisible()) {
-                    slidingLayout.scrollToRightLayout();
-                }
                 Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
                 switch (position) {
                     case 0:
-                        intent = new Intent(MainActivity.this, MainActivity.class);
-                        startActivity(intent);
                         break;
                     case 1:
                         intent = new Intent(MainActivity.this, ThemeActivity.class);
                         startActivity(intent);
+                        MainActivity.this.finish();
                         break;
+                }
+                if (slidingLayout.isLeftLayoutVisible()) {
+                    slidingLayout.scrollToRightLayout();
                 }
             }
         });
@@ -84,6 +83,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
             case R.id.btn_tv:
                 Intent intent = new Intent(MainActivity.this, TvPanelActivity.class);
                 startActivity(intent);
+                MainActivity.this.finish();
                 break;
         }
     }
