@@ -25,7 +25,7 @@ import java.util.Timer;
  */
 public class ThemeActivity extends Activity implements View.OnClickListener{
 
-    SocketHandler socket;
+    SocketHandler socket = new SocketHandler();
 
     private Button mBtnTheatre;
     private RelativeLayout mLayout;
@@ -108,14 +108,19 @@ public class ThemeActivity extends Activity implements View.OnClickListener{
                             try {
                                 Thread btnCtrl = new Thread(socket.new ButtonCtrl(mContext, R.id.tv_btn_power));
                                 btnCtrl.start();
+                                Thread.sleep(1000);
                                 Toast.makeText(mContext, "TV is turned on", Toast.LENGTH_SHORT).show();
+                                btnCtrl = new Thread(socket.new ButtonCtrl(mContext, R.id.tv_btn_up));
+                                btnCtrl.start();
                                 Thread.sleep(1000);
                                 Toast.makeText(mContext, "Speaker is turned on", Toast.LENGTH_SHORT).show();
+                                btnCtrl = new Thread(socket.new ButtonCtrl(mContext, R.id.tv_btn_down));
+                                btnCtrl.start();
                                 Thread.sleep(1000);
                                 Toast.makeText(mContext, "Disc Player is turned on", Toast.LENGTH_SHORT).show();
-                                Thread.sleep(1000);
+                                //Thread.sleep(1000);
                                 Toast.makeText(mContext, "Light is turned off", Toast.LENGTH_SHORT).show();
-                                Thread.sleep(1000);
+                                Toast.makeText(mContext, "Theater Mode is on", Toast.LENGTH_SHORT).show();
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }

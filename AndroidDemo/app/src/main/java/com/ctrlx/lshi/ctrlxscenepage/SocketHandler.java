@@ -20,15 +20,16 @@ import java.net.Socket;
 import java.util.List;
 
 public class SocketHandler {
-    private static final String SEVERIP = "10.10.10.102";
+    private static final String SEVERIP = "10.10.10.101";
     private static final int SEVERPORT = 6666;
-    DatabaseHandler db;
+
     private Socket socket = null;
     private PrintWriter out = null;
     private BufferedReader in = null;
     private String instruction;
 
     private Context mContext;
+    DatabaseHandler db;
 
     class ClientThread implements Runnable {
         @Override
@@ -53,9 +54,9 @@ public class SocketHandler {
 
         @Override
         public void run() {
-            Looper.prepare();
+            /*Looper.prepare();
             Toast.makeText(mContext, "start creating socket", Toast.LENGTH_SHORT).show();
-            Looper.loop();
+            Looper.loop();*/
             createNewSocket();
             String receive = communicate("hello:iniConnection");
             if (receive.contains("rdy")) {
@@ -82,6 +83,7 @@ public class SocketHandler {
 
         @Override
         public void run() {
+            db = new DatabaseHandler(mContext);
             createNewSocket();
             String check = communicate("hello:iniControl:1");
             if (check.contains("rdy")) {
@@ -117,6 +119,7 @@ public class SocketHandler {
 
         @Override
         public void run() {
+            db = new DatabaseHandler(mContext);
             createNewSocket();
             String check = communicate("hello:iniLearn");
             if (check.contains("rdy")) {
