@@ -29,7 +29,7 @@ import com.ctrlx.lshi.ctrlxscenepage.R;
 
 public class TvPanelActivity extends Activity implements View.OnClickListener {
 
-    SocketHandler socket;
+    SocketHandler socket = new SocketHandler();
 
     private boolean if_learn_mode = false;
 
@@ -54,6 +54,7 @@ public class TvPanelActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_tv);
         mContext = this.getApplicationContext();
 
+        //SocketHandler socket = new SocketHandler();
 
         mBtnPower = (Button) findViewById(R.id.tv_btn_power);
         mBtnPanel = (Button) findViewById(R.id.tv_btn_panel);
@@ -96,8 +97,7 @@ public class TvPanelActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_btn_more:
-                //SocketHandler.ConnectionThread ch = new SocketHandler.ConnectionThread();
-                Thread connectionThread = new Thread(new SocketHandler.ConnectionThread());
+                Thread connectionThread = new Thread(socket.new ConnectionThread(mContext));
                 connectionThread.start();
                 //Toast.makeText(mContext, "more clicked", Toast.LENGTH_SHORT).show();
                 break;
@@ -118,12 +118,12 @@ public class TvPanelActivity extends Activity implements View.OnClickListener {
                 break;
             default:
                 if (if_learn_mode){
-                    Thread btnLearn = new Thread(socket.new ButtonLearn(view.getId()));
+                    Thread btnLearn = new Thread(socket.new ButtonLearn(mContext, view.getId()));
                     btnLearn.start();
                     Toast.makeText(mContext, "start learning", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Thread btnCtrl = new Thread(socket.new ButtonCtrl(view.getId()));
+                    Thread btnCtrl = new Thread(socket.new ButtonCtrl(mContext, view.getId()));
                     btnCtrl.start();
                     Toast.makeText(mContext, "start control", Toast.LENGTH_SHORT).show();
                 }

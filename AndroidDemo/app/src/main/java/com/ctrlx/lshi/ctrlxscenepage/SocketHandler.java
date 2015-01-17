@@ -1,6 +1,7 @@
 package com.ctrlx.lshi.ctrlxscenepage;
 
 import android.content.Context;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 import android.os.Handler;
@@ -22,12 +23,12 @@ public class SocketHandler {
     private static final String SEVERIP = "10.10.10.102";
     private static final int SEVERPORT = 6666;
     DatabaseHandler db;
-    private static Socket socket = null;
-    private static PrintWriter out = null;
-    private static BufferedReader in = null;
-    private static String instruction;
+    private Socket socket = null;
+    private PrintWriter out = null;
+    private BufferedReader in = null;
+    private String instruction;
 
-    private static Context mContext;
+    private Context mContext;
 
     class ClientThread implements Runnable {
         @Override
@@ -38,23 +39,35 @@ public class SocketHandler {
                 communicate("info:Hotspot/12345678");
             } else {
                 int messageResId = R.string.connection_fail_toast;
+                Looper.prepare();
                 Toast.makeText(mContext, messageResId, Toast.LENGTH_SHORT).show();
+                Looper.loop();
             }
         }
     }
 
-    static class ConnectionThread implements Runnable {
+    class ConnectionThread implements Runnable {
+        ConnectionThread(Context context) {
+            mContext = context;
+        }
+
         @Override
         public void run() {
+            Looper.prepare();
             Toast.makeText(mContext, "start creating socket", Toast.LENGTH_SHORT).show();
+            Looper.loop();
             createNewSocket();
             String receive = communicate("hello:iniConnection");
             if (receive.contains("rdy")) {
                 int messageResId = R.string.connection_success_toast;
+                Looper.prepare();
                 Toast.makeText(mContext, messageResId, Toast.LENGTH_SHORT).show();
+                Looper.loop();
             } else {
                 int messageResId = R.string.connection_fail_toast;
+                Looper.prepare();
                 Toast.makeText(mContext, messageResId, Toast.LENGTH_SHORT).show();
+                Looper.loop();
             }
         }
     }
@@ -62,8 +75,9 @@ public class SocketHandler {
     class ButtonCtrl implements Runnable {
         int btn_id;
 
-        ButtonCtrl(int btn_id) {
+        ButtonCtrl(Context context, int btn_id) {
             this.btn_id = btn_id;
+            mContext = context;
         }
 
         @Override
@@ -85,7 +99,9 @@ public class SocketHandler {
                 System.out.println("Already exist control info?: " + exist);
             } else {
                 int messageResId = R.string.connection_fail_toast;
+                Looper.prepare();
                 Toast.makeText(mContext, messageResId, Toast.LENGTH_SHORT).show();
+                Looper.loop();
             }
         }
     }
@@ -94,8 +110,9 @@ public class SocketHandler {
         boolean success = false;
         int btn_id;
 
-        ButtonLearn(int btn_id) {
+        ButtonLearn(Context context, int btn_id) {
             this.btn_id = btn_id;
+            mContext = context;
         }
 
         @Override
@@ -141,7 +158,9 @@ public class SocketHandler {
                     communicate("failed:iniLearn");
                     System.out.println("Learning Time Out");
                     int messageResId = R.string.learn_receive_timeout_toast;
+                    Looper.prepare();
                     Toast.makeText(mContext, messageResId, Toast.LENGTH_SHORT).show();
+                    Looper.loop();
                 } else {
 
                     communicate("recvd:iniLearn");
@@ -156,7 +175,9 @@ public class SocketHandler {
                     db.addInfo(b);
                     //Make toast, learning success
                     int messageResId = R.string.learn_success_toast;
+                    Looper.prepare();
                     Toast.makeText(mContext, messageResId, Toast.LENGTH_SHORT).show();
+                    Looper.loop();
                 }
 
                 Log.d("Reading: ", "Reading all button entries..");
@@ -170,7 +191,9 @@ public class SocketHandler {
 
             } else {
                 int messageResId = R.string.learn_connect_fail_toast;
+                Looper.prepare();
                 Toast.makeText(mContext, messageResId, Toast.LENGTH_SHORT).show();
+                Looper.loop();
             }
 
         }
@@ -192,7 +215,7 @@ public class SocketHandler {
         }
     }
 
-    public static void createNewSocket() {
+    public void createNewSocket() {
         try {
             InetAddress serverAddr = InetAddress.getByName(SEVERIP);
             socket = new Socket(serverAddr, SEVERPORT);
@@ -206,7 +229,7 @@ public class SocketHandler {
         }
     }
 
-    public static String communicate(String msg) {
+    public String communicate(String msg) {
         String revMessage = "";
         instruction = msg;
         if (out != null) {

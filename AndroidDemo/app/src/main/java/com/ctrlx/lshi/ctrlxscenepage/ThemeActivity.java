@@ -106,7 +106,7 @@ public class ThemeActivity extends Activity implements View.OnClickListener{
                         public void run() {
                             // Do something after 5s = 5000ms
                             try {
-                                Thread btnCtrl = new Thread(socket.new ButtonCtrl(R.id.tv_btn_power));
+                                Thread btnCtrl = new Thread(socket.new ButtonCtrl(mContext, R.id.tv_btn_power));
                                 btnCtrl.start();
                                 Toast.makeText(mContext, "TV is turned on", Toast.LENGTH_SHORT).show();
                                 Thread.sleep(1000);
